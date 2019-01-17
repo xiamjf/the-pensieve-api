@@ -40,14 +40,14 @@ class PostsController < OpenReadController
     head :no_content
   end
 
-  # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = current_user.post.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def post_params
-    params.require(:post).permit(:body, :pensieve_results)
+    params.require(:post).permit(:body, :pensieve_results, :user_id)
   end
 
   private :set_post, :post_params
