@@ -1,3 +1,3 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :text, :editable
+  attributes :id, :body, :editable, :pensieve_results, :created_at
 end
