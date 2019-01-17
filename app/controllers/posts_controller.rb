@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < OpenReadController
   before_action :set_post, only: [:show, :update, :destroy]
 
   # GET /posts
@@ -10,12 +10,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post
+    render json: Post.find(params[:id])
   end
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       render json: @post, status: :created, location: @post
