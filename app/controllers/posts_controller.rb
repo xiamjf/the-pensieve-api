@@ -47,7 +47,7 @@ class PostsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def post_params
-    params.require(:post).permit(:body, :pensieve_results, :user_id)
+    params.require(:post).permit(:body, :pensieve_results, :user)
   end
 
   private :set_post, :post_params
